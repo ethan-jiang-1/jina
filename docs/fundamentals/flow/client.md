@@ -235,7 +235,7 @@ with Flow().add() as f, open('output.txt', 'w') as fp:
         on_always=lambda x: x.docs.save(fp),
     )
 ```
-## On failure callback
+### On failure callback
 
 Additionally, the `on_error` callback can be triggered by a raise of an exception. The callback must take an optional 
 `exception` parameters as an argument.
@@ -321,6 +321,16 @@ with Flow() as f:
 ```
 
 ````
+
+### HTTPS support
+
+To connect to a Flow that has been {ref}`configured to use HTTPS <flow-https>` in combination with http or websocket,
+set the Client's `https` parameter to `True`:
+
+```python
+c_http = Client(protocol='http', https=True)
+c_ws = Client(protocol='websocket', https=True)
+```
 
 ## GraphQL
 
